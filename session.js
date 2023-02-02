@@ -1,9 +1,10 @@
 let session = require('express-session');
+const { SECRET_KEY } = require('./config')
 const { store } = require('./db')
 
 session = session({
     store: store,
-    secret: 'vockchrewt',
+    secret: SECRET_KEY,
     saveUninitialized: false,
     resave: false,
     

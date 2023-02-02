@@ -1,5 +1,6 @@
 const { db_client } = require('../db');
 const bcrypt = require('bcryptjs');
+const { BCRYPT_WORK_FACTOR } = require('../config')
 
 
 
@@ -16,7 +17,7 @@ class User{
     }
 
     static async register({first_name, last_name, email, password}){
-        const hashedPassword = bcrypt.hashSync(password, 10)
+        const hashedPassword = bcrypt.hashSync(password, BCRYPT_WORK_FACTOR)
         let query = `
                     INSERT INTO jest_users
                     (first_name, last_name, email, password)
