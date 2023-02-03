@@ -1,6 +1,8 @@
 require('dotenv').config();
 require("colors");
 
+process.env.NODE_ENV = "test" ;
+
 const SECRET_KEY = process.env.SECRET_KEY || 'vockchrewt';
 
 const PORT = +process.env.PORT || 3080 ;
